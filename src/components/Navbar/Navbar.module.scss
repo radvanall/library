@@ -1,0 +1,31 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5px 0 5px;
+  background-color: #e0d7d2;
+  box-sizing: border-box;
+  .book_svg {
+    height: 25px;
+    padding-top: 5px;
+    align-self: start;
+    cursor: pointer;
+    &:hover {
+      fill: #e1590f;
+    }
+  }
+  a {
+    display: inline-block;
+    color: black;
+    // width: 50px;
+    padding: 5px;
+    text-decoration: none;
+    box-sizing: border-box;
+    &:hover {
+      color: #e1590f;
+    }
+  }
+  .active {
+    color: red;
+    text-decoration: underline;
+  }
+}

@@ -1,0 +1,38 @@
+.checkbox__container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  label {
+    cursor: pointer;
+    display: flex;
+  }
+  input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  label:before {
+    content: "\00d7";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: red;
+    width: 1em;
+    height: 1em;
+    border-radius: 0.15em;
+    margin-right: 0.3em;
+    margin-top: 0.25em;
+    border: 0.05em solid black;
+  }
+  label:hover::before,
+  input[type="checkbox"]:hover + label:before {
+    background-color: aqua;
+  }
+  input[type="checkbox"]:checked + label:before {
+    content: "\002714";
+    color: rgb(31, 177, 116);
+  }
+  input[type="checkbox"]:focus + label:before {
+    box-shadow: 0 0 20px black;
+  }
+}
