@@ -1,0 +1,23 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  .current__page {
+    background-color: #e1590f;
+    min-width: 40px;
+    cursor: pointer;
+  }
+  .page__number {
+    cursor: pointer;
+    min-width: 40px;
+    &:hover {
+      background-color: #e0d7d2;
+    }
+  }
+  .arrow__button {
+    padding: 5px;
+    cursor: pointer;
+    &:hover {
+      background-color: #e0d7d2;
+    }
+  }
+}

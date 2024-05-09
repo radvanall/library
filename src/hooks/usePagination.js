@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const usePagination = (params, setParams, totalNumber, nrOfDisplayedPages) => {
   const totalPages = parseInt(
@@ -18,11 +18,7 @@ const usePagination = (params, setParams, totalNumber, nrOfDisplayedPages) => {
     parseInt(params?.page) + Math.floor(nrOfDisplayedPages / 2) >
     totalPages
   ) {
-    for (
-      let i = totalPages - nrOfDisplayedPages + 1;
-      i <= nrOfDisplayedPages;
-      i++
-    ) {
+    for (let i = totalPages - nrOfDisplayedPages + 1; i <= totalPages; i++) {
       initialPages.push(i);
     }
   } else {
@@ -34,40 +30,54 @@ const usePagination = (params, setParams, totalNumber, nrOfDisplayedPages) => {
       initialPages.push(i);
     }
   }
-  const [pages, setPages] = useState(initialPages);
+  const [pages, setPages] = useState([...initialPages]);
+  const [currentPage, setCurrentPage] = useState(1);
+  useEffect(() => {
+    setCurrentPage(params.page);
+  }, [params.page]);
+  useEffect(() => {
+    setPages([...initialPages]);
+  }, [totalPages, currentPage]);
 
   const changePage = (e) => {
+    setCurrentPage(parseInt(e.target.value));
     setParams({
       ...params,
       page: parseInt(e.target.value),
     });
   };
-  const toPreviousPage = (e) => {
+  const toPreviousPage = () => {
+    setCurrentPage((prev) => prev - 1);
     setParams({
       ...params,
-      page: parseInt(e.target.value) - 1,
+      page: parseInt(params.page) - 1,
     });
   };
-  const toNextPage = (e) => {
+  const toNextPage = () => {
+    setCurrentPage((prev) => prev + 1);
     setParams({
       ...params,
-      page: parseInt(e.target.value) + 1,
+      page: parseInt(params.page) + 1,
     });
   };
   const toFirstPage = () => {
+    setCurrentPage(1);
     setParams({
       ...params,
       page: 1,
     });
   };
   const toLastPage = () => {
+    setCurrentPage(totalPages);
     setParams({
       ...params,
       page: totalPages,
     });
   };
+  console.log(initialPages);
   return {
     pages,
+    currentPage,
     changePage,
     toFirstPage,
     toLastPage,
