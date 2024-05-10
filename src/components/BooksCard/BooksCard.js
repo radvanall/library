@@ -1,9 +1,17 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./BooksCard.module.scss";
 import stat from "../../images/static/book.png";
 const BooksCard = ({ book }) => {
+  const navigate = useNavigate();
   return (
-    <div className={styles.card__container}>
+    <div
+      className={styles.card__container}
+      onClick={() => {
+        navigate(String(book.id));
+        console.log(book);
+      }}
+    >
       {book?.cover ? (
         <img src={book.cover} alt="#" />
       ) : (
