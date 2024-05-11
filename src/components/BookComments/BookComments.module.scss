@@ -1,0 +1,26 @@
+.comments__container {
+  border: 1px solid black;
+  box-sizing: border-box;
+  max-width: 1200px;
+  margin: 5px auto;
+  padding: 0 10px 0 10px;
+  .comment_nr {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 5px;
+  }
+  .closed__comments {
+    display: none;
+  }
+  .comment_svg {
+    height: 35px;
+    padding-top: 5px;
+    align-self: start;
+
+    cursor: pointer;
+    &:hover path {
+      fill: #e1590f !important;
+    }
+  }
+}
