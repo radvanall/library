@@ -4,6 +4,17 @@
   max-width: 1200px;
   margin: 5px auto;
   padding: 0 10px 0 10px;
+  .comment__aria {
+    width: 100%;
+    padding: 5px;
+    margin-right: 5px;
+    box-sizing: border-box;
+    font-size: 18px;
+    max-height: 150px;
+  }
+  .commentError {
+    color: red;
+  }
   .comment_nr {
     display: flex;
     justify-content: end;
