@@ -7,9 +7,10 @@ const Navbar = () => {
   return (
     <nav className={styles.nav}>
       <div>
-        <Icon className={styles.book_svg} data-testid="logo" />
+        <NavLink to="/">
+          <Icon className={styles.book_svg} data-testid="logo" />
+        </NavLink>
       </div>
-      {/* <img src={path.join(__dirname,"")} alt="" /> */}
       <div>
         <NavLink
           to="/login"
