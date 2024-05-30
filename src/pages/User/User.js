@@ -5,12 +5,8 @@ import useGet from "../../api/useGet";
 
 const User = () => {
   const { id } = useParams();
-  const {
-    data: nrOfComments,
-    errorNrComments,
-    isLoadingNrComments,
-  } = useGet(`/comments/user/${id}`);
-  console.log(nrOfComments);
+  const { data, errorNrComments, isLoadingNrComments } = useGet(`/users/${id}`);
+  console.log(data);
   //const { data, error, isLoading } = useGet("/comments/user");
   return <div>User:{id}</div>;
 };
