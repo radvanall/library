@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./UserCard.module.scss";
-const UserCard = () => {
-  return <div>UserCard</div>;
+const UserCard = ({ user }) => {
+  return <div>login:{user.login}</div>;
 };
 
 export default UserCard;
