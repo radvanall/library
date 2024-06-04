@@ -1,3 +1,11 @@
 .user__card {
   display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  border: 1px solid #e1590f;
+  background-color: #e0d7d2;
+  align-items: center;
+  img {
+    max-width: 100%;
+  }
 }
