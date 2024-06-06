@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import styles from "./User.module.scss";
 import useGet from "../../api/useGet";
 import UserCard from "../../components/UserCard/UserCard";
+import UserComments from "../../components/UserComments/UserComments";
 
 const User = () => {
   const { id } = useParams();
@@ -12,6 +13,7 @@ const User = () => {
   return (
     <div>
       <UserCard user={data} />
+      <UserComments />
     </div>
   );
 };
