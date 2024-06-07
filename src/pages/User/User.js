@@ -11,7 +11,7 @@ const User = () => {
   console.log(data);
   //const { data, error, isLoading } = useGet("/comments/user");
   return (
-    <div>
+    <div className={styles.user}>
       <UserCard user={data} />
       <UserComments />
     </div>
