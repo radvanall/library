@@ -4,6 +4,7 @@ import styles from "./User.module.scss";
 import useGet from "../../api/useGet";
 import UserCard from "../../components/UserCard/UserCard";
 import UserComments from "../../components/UserComments/UserComments";
+import useGetEvent from "../../api/useGetEvent";
 
 const User = () => {
   const { id } = useParams();
