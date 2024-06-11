@@ -14,7 +14,7 @@ const User = () => {
   return (
     <div className={styles.user}>
       <UserCard user={data} />
-      <UserComments />
+      <UserComments id={id} />
     </div>
   );
 };
