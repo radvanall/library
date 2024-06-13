@@ -14,7 +14,7 @@ const User = () => {
   return (
     <div className={styles.user}>
       <UserCard user={data} />
-      <UserComments id={id} />
+      {data && <UserComments id={id} totalComments={data.totalComments} />}
     </div>
   );
 };
