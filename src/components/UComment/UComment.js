@@ -10,7 +10,7 @@ const UComment = ({ comment }) => {
           to={`/${comment?.bookId}`}
           className={(isActive) => (isActive ? styles.active : "")}
         >
-          {comment.login}
+          {comment.title}
         </NavLink>
       ) : (
         <p>inactive title</p>

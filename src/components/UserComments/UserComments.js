@@ -40,9 +40,8 @@ const UserComments = ({ id, totalComments }) => {
   } = usePagination(params, setParams, totalComments || 5, 5);
   return (
     <div className={styles.user__comments}>
-      {comments.map((com) => (
-        <UComment comment={com} key={com.commentId} />
-      ))}
+      {comments &&
+        comments.map((com) => <UComment comment={com} key={com.commentId} />)}
       <Pagination
         pages={pages}
         currentPage={currentPage}
