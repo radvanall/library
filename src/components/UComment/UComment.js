@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import imgHolder from "../../images/static/avatar.jpg";
+import imgHolder from "../../images/static/book.png";
 import styles from "./UComment.module.scss";
 const UComment = ({ comment }) => {
   return (
