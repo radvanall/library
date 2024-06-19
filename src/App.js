@@ -4,6 +4,7 @@ import Layout from "./components/Layout";
 import Main from "./pages/Main/Main";
 import Book from "./pages/Book/Book";
 import User from "./pages/User/User";
+import Login from "./pages/Login/Login";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="user">
             <Route path=":id" element={<User />} />
           </Route>
+          <Route path="login" element={<Login />} />
         </Route>
       </Routes>
     </div>
