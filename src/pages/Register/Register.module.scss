@@ -1,0 +1,17 @@
+.form__page {
+  display: flex;
+  box-sizing: border-box;
+  gap: 10px;
+  max-width: 1200px;
+  padding: 5px;
+  margin: 10px auto;
+  border: 1px solid red;
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    input {
+      padding: 5px;
+    }
+  }
+}
