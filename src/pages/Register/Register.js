@@ -2,9 +2,15 @@ import React from "react";
 import styles from "./Register.module.scss";
 
 const Register = () => {
+  let handleSubmit = (event) => {
+    event.preventDefault();
+
+    let formData = new FormData(event.target);
+    console.log(formData);
+  };
   return (
     <div className={styles.form__page}>
-      <form action="">
+      <form onSubmit={handleSubmit}>
         <h2>Register</h2>
         <label htmlFor="login">Username</label>
         <input type="text" id="login" />
