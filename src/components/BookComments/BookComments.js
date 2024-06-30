@@ -4,14 +4,29 @@ import useGet from "../../api/useGet";
 import useGetEven from "../../api/useGetEvent";
 import Comment from "../Comment/Comment";
 import { ReactComponent as Icon } from "../../images/svg/comment.svg";
+import Modal from "../Modal/Modal";
 import usePagination from "../../hooks/usePagination";
 import Pagination from "../Pagination/Pagination";
 import usePost from "../../api/usePost";
+import usePut from "../../api/usePut";
+import useDelete from "../../api/useDelete";
 const BookComments = ({ id }) => {
   const [params, setParams] = useState({ page: 1 });
   const [comments, setCommments] = useState(null);
+  const [isActive, setIsActive] = useState(false);
+  const [commentToEdit, setCommentToEdit] = useState(null);
 
   const { postData, message, setMessage } = usePost("/comments");
+  const {
+    putData,
+    message: editMessage,
+    setMessage: setEditMessage,
+  } = usePut(`/comments/${commentToEdit?.id ?? -1}`);
+  const {
+    deleteData,
+    message: deleteMessage,
+    setMessage: setDeleteMessage,
+  } = useDelete(`/comments`);
   const { data, isLoading, error } = useGet(`comments/book/${id}`, {}, [
     message,
   ]);
@@ -88,6 +103,7 @@ const BookComments = ({ id }) => {
     await postData(data);
     const res = await getData(params);
     if (!commentError) {
+      console.log("par=", params);
       setCommments(res?.data);
       setParams(params);
       setDisplayComments(true);
@@ -96,6 +112,46 @@ const BookComments = ({ id }) => {
 
   const deleteComment = () => {
     textRef.current.value = "";
+  };
+  const activateModal = (comment) => {
+    setCommentToEdit(comment);
+    setIsActive(true);
+  };
+  const changeComment = (event) => {
+    setCommentToEdit((prev) => ({ ...prev, comment: event.target.value }));
+  };
+  const commitChanges = async () => {
+    await putData({ comment: commentToEdit.comment });
+    setTimeout(() => {
+      setEditMessage("");
+    }, [6000]);
+    let par = {
+      totalComments: data.totalComments,
+      page: currentPage,
+      limit: 3,
+      id: id,
+    };
+    const res = await getData(par);
+    if (!commentError) {
+      setCommments(res?.data);
+      setParams(params);
+      setDisplayComments(true);
+    }
+  };
+  const removeComment = async (id) => {
+    await deleteData(id);
+    let par = {
+      totalComments: data.totalComments - 1,
+      page: currentPage,
+      limit: 3,
+      id: id,
+    };
+    const res = await getData(par);
+    if (!commentError) {
+      setCommments(res?.data);
+      setParams(params);
+      setDisplayComments(true);
+    }
   };
   return (
     <div className={styles.comments__container}>
@@ -121,6 +177,20 @@ const BookComments = ({ id }) => {
                 rows="10"
                 placeholder="Leave a comment"
               ></textarea>
+              <Modal isActive={isActive} setIsActive={setIsActive}>
+                <textarea
+                  name=""
+                  className={styles.comment__aria}
+                  id=""
+                  cols="30"
+                  rows="10"
+                  value={commentToEdit?.comment ?? ""}
+                  onChange={changeComment}
+                  placeholder="Leave a comment"
+                ></textarea>
+                <button onClick={commitChanges}>Change</button>
+                {editMessage && <p>{editMessage}</p>}
+              </Modal>
               <button onClick={postComment}>Post</button>
               <button onClick={deleteComment}>Delete</button>
               {comError && (
@@ -130,7 +200,12 @@ const BookComments = ({ id }) => {
               )}
               {message && <p className={styles.commentError}>{message}</p>}
               {comments.map((com) => (
-                <Comment comment={com} key={com.id} />
+                <Comment
+                  comment={com}
+                  key={com.id}
+                  activateModal={activateModal}
+                  removeComment={removeComment}
+                />
               ))}
               <Pagination
                 pages={pages}
