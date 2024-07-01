@@ -29,6 +29,7 @@ const BookComments = ({ id }) => {
   } = useDelete(`/comments`);
   const { data, isLoading, error } = useGet(`comments/book/${id}`, {}, [
     message,
+    deleteMessage,
   ]);
   const [displayComments, setDisplayComments] = useState(false);
   const [comError, setComError] = useState(false);
@@ -131,6 +132,7 @@ const BookComments = ({ id }) => {
       limit: 3,
       id: id,
     };
+    console.log("aprd=", par);
     const res = await getData(par);
     if (!commentError) {
       setCommments(res?.data);
@@ -138,20 +140,26 @@ const BookComments = ({ id }) => {
       setDisplayComments(true);
     }
   };
-  const removeComment = async (id) => {
-    await deleteData(id);
+  const removeComment = async (cId) => {
+    await deleteData(cId);
     let par = {
-      totalComments: data.totalComments - 1,
+      totalComments: data.totalComments,
       page: currentPage,
       limit: 3,
       id: id,
     };
+
+    console.log("aprd=", par);
     const res = await getData(par);
     if (!commentError) {
       setCommments(res?.data);
       setParams(params);
       setDisplayComments(true);
+      console.log("comments=", res);
     }
+    setTimeout(() => {
+      setDeleteMessage("");
+    }, [6000]);
   };
   return (
     <div className={styles.comments__container}>
