@@ -43,7 +43,12 @@ const Register = () => {
       formData.append("avatar", value);
       console.log(value);
     }
+    setError(null);
     await postData(formData);
+    setTimeout(() => {
+      setMessage(null);
+      setBackEndError(null);
+    }, 7000);
   };
   let handleOnChange = (event) => {
     setFormValues({ ...formValues, [event.target.name]: event.target.value });
@@ -84,6 +89,7 @@ const Register = () => {
         />
         {error && <p>{error}</p>}
         {message && <p>{message}</p>}
+        {backEndError && <p>{backEndError}</p>}
         <input type="submit" value="Register" />
       </form>
       <img src={selectedImage} alt="#" />
