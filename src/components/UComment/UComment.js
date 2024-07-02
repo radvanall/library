@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import imgHolder from "../../images/static/book.png";
 import styles from "./UComment.module.scss";
-const UComment = ({ comment }) => {
+const UComment = ({ comment, activateModal, removeComment }) => {
   return (
     <div className={styles.comment__container}>
       {comment.bookId ? (
@@ -21,6 +21,12 @@ const UComment = ({ comment }) => {
         ) : (
           <img className={styles.cover} src={imgHolder} alt="#" />
         )}
+        <div className={styles.button__container}>
+          <button onClick={() => activateModal(comment)}>Edit</button>
+          <button onClick={() => removeComment(comment.commentId)}>
+            Delete
+          </button>
+        </div>
         <p>{comment.comment}</p>
       </div>
     </div>

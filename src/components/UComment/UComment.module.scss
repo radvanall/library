@@ -4,7 +4,9 @@
   border: 1px solid black;
   padding: 5px;
   box-sizing: border-box;
+  overflow: hidden;
   .comment__body {
+    position: relative;
     display: flex;
     width: 100%;
     gap: 10px;
@@ -13,5 +15,17 @@
       width: 100px;
       height: 100px;
     }
+  }
+  .button__container {
+    position: absolute;
+    width: 80px;
+    top: -59px;
+    right: 0;
+    button {
+      cursor: pointer;
+    }
+  }
+  &:hover .button__container {
+    top: -10px;
   }
 }
