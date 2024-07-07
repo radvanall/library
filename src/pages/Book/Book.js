@@ -7,7 +7,8 @@ import useGet from "../../api/useGet";
 const Book = () => {
   const { id } = useParams();
   const { data, loading, error } = useGet(`books/${id}`);
-  console.log("book", data);
+  console.log("book", data)
+  //testing the editting in place
   return (
     <div>
       {data && (
