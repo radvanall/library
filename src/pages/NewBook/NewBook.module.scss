@@ -1,0 +1,5 @@
+@import "../../partials/pageSettings";
+.new__book {
+  @include page(10px);
+  border: 1px solid black;
+}
