@@ -1,8 +1,7 @@
+@import "../../partials/pageSettings";
 .comments__container {
   border: 1px solid black;
-  box-sizing: border-box;
-  max-width: 1200px;
-  margin: 5px auto;
+  @include page(5px);
   padding: 0 10px 0 10px;
   .comment__aria {
     width: 100%;

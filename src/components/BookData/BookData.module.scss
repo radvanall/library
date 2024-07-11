@@ -1,10 +1,9 @@
+@import "../../partials/pageSettings";
 .book__data {
   display: flex;
-  box-sizing: border-box;
+  @include page(10px);
   gap: 10px;
-  max-width: 1200px;
   padding: 5px;
-  margin: 10px auto;
   background-color: #e5e1d8;
   .cover {
     width: 400px;
