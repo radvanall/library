@@ -1,0 +1,13 @@
+.select__container {
+  display: flex;
+  button {
+    cursor: pointer;
+  }
+}
+.genre__container {
+  min-height: 35px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: space-between;
+}

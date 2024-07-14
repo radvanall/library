@@ -6,7 +6,7 @@ const GenreBox = ({ id, label, quantity, ...props }) => {
   return (
     <div className={styles.genre__box}>
       <Checkbox border={false} id={id} label={label} {...props} />
-      <label>{quantity}</label>
+      {quantity && <label>{quantity}</label>}
     </div>
   );
 };
