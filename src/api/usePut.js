@@ -13,6 +13,11 @@ const usePut = (dataUrl) => {
     } catch (err) {
       console.log(err.response.data.message);
       setError(err.response.data.message);
+    } finally {
+      setTimeout(() => {
+        setMessage("");
+        setError("");
+      }, 4000);
     }
   };
   return { putData, setMessage, setError, message, error };

@@ -1,0 +1,21 @@
+@import "../../partials/pageSettings";
+.book__menu {
+  @include page(5px);
+  display: flex;
+  width: 100%;
+  padding: 0px 5px 0px 5px;
+  border: 1px solid black;
+  justify-content: flex-end;
+  .edit__svg {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    &:hover {
+      fill: #e1590f;
+    }
+    &:active {
+      border: 1px solid #e1590f;
+    }
+  }
+}

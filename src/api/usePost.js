@@ -11,9 +11,15 @@ const usePost = (dataUrl) => {
       console.log(res);
       setMessage(res.data);
     } catch (err) {
-      console.log(error);
+      console.log(err.response.data.message);
+      setError(err.response.data.message);
+    } finally {
+      setTimeout(() => {
+        setMessage("");
+        setError("");
+      }, 4000);
     }
   };
-  return { postData, setMessage, message };
+  return { postData, setMessage, setError, message, error };
 };
 export default usePost;
