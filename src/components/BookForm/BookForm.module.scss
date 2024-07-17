@@ -1,0 +1,36 @@
+h2 {
+  text-align: center;
+}
+.content__container {
+  min-width: 260px;
+  display: flex;
+  gap: 10px;
+  .cover {
+    width: 60%;
+  }
+  form {
+    box-sizing: border-box;
+    padding: 5px;
+    width: 40%;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    min-width: 250px;
+    input[type="submit"] {
+      width: 100px;
+      align-self: center;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+  }
+  @media (max-width: 750px) {
+    flex-direction: column;
+    .cover {
+      width: 100%;
+      object-fit: cover;
+    }
+    form {
+      width: 100%;
+    }
+  }
+}
