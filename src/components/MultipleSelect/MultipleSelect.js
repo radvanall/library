@@ -4,13 +4,14 @@ import styles from "./MultipleSelect.module.scss";
 import CustomSelect from "../CustomSelect/CustomSelect";
 import GenreBox from "../GenreBox/GenreBox";
 
-const MultipleSelect = ({ data, width, label }) => {
+const MultipleSelect = ({ data, newGenres, setNewGenres, width, label }) => {
   const selectRef = useRef();
   const pressEnter = useKeyPress("Enter", selectRef);
-  const [newGenres, setNewGenres] = useState([]);
   const [selected, setSelected] = useState({ id: 0, value: "" });
   const addGenre = () => {
-    const isChoosen = newGenres.findIndex((el) => el?.id === selected?.id);
+    const isChoosen = newGenres.findIndex(
+      (el) => parseInt(el?.id) === parseInt(selected?.id)
+    );
     if (parseInt(selected.id) !== 0 && isChoosen == -1) {
       setNewGenres((prev) => [...prev, { ...selected }]);
     }
