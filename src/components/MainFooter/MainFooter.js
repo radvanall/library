@@ -13,7 +13,7 @@ const MainFooter = () => {
     toLastPage,
     toNextPage,
     toPreviousPage,
-  } = usePagination(params, setParams, books?.totalNumber || 5, 5);
+  } = usePagination(params, setParams, books?.totalNumber || 1, 5);
 
   return (
     <div>

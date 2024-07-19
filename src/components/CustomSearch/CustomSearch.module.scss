@@ -1,0 +1,23 @@
+.custom_search__container {
+  position: relative;
+  display: flex;
+  width: fit-content;
+  button {
+    cursor: pointer;
+    &:hover {
+      background-color: aqua;
+    }
+  }
+  .refresh__search_bar {
+    position: absolute;
+    width: 20px;
+    height: 100%;
+    left: 189px;
+    border: none;
+    background-color: transparent;
+  }
+  input {
+    width: 200px;
+    padding: 3px;
+  }
+}

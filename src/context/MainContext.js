@@ -21,6 +21,7 @@ const MainProvider = ({ children }) => {
     page: 1,
     limit: 3,
     requiredGenre,
+    searchWord: "",
     ignoredGenres: JSON.stringify([]),
   });
   const { data: genres, error, isLoading } = useGet("genres/book-count");
@@ -54,7 +55,9 @@ const MainProvider = ({ children }) => {
       }
       console.log("newIgnoredGenres slice=", newIgnoredGenres);
     } else {
-      newIgnoredGenres.push(parseInt(e.target.id));
+      if (params?.requiredGenre) {
+        newIgnoredGenres = genres.map((genre) => parseInt(genre.id));
+      } else newIgnoredGenres.push(parseInt(e.target.id));
     }
     console.log(newIgnoredGenres);
     setParams({
@@ -64,7 +67,28 @@ const MainProvider = ({ children }) => {
       ignoredGenres: JSON.stringify(newIgnoredGenres),
     });
   };
-
+  const changeSearchWord = (word) => {
+    setParams((prev) => {
+      const newParams = {
+        ...prev,
+        page: 1,
+        searchWord: word,
+      };
+      return newParams;
+    });
+  };
+  const resetParams = () => {
+    setParams((prev) => {
+      const newParams = {
+        ...prev,
+        requiredGenre: null,
+        page: 1,
+        searchWord: "",
+        ignoredGenres: JSON.stringify([]),
+      };
+      return newParams;
+    });
+  };
   return (
     <MainContext.Provider
       value={{
@@ -75,8 +99,10 @@ const MainProvider = ({ children }) => {
         booksError,
         booksAreLoading,
         params,
+        resetParams,
         setParams,
         handleGenreChange,
+        changeSearchWord,
       }}
     >
       {children}
