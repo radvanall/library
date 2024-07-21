@@ -1,0 +1,10 @@
+@import "../../partials/pageSettings";
+.container {
+  @include page(10px);
+  .search {
+    display: flex;
+    justify-content: flex-end;
+    padding: 5px 0 5px 0;
+  }
+  padding: 5px;
+}

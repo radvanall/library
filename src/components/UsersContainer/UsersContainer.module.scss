@@ -1,0 +1,11 @@
+.users__container {
+  position: relative;
+  border: 1px solid black;
+  box-sizing: border-box;
+  padding: 2px;
+  .filter__box {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 10px;
+  }
+}
