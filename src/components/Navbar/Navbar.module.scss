@@ -1,6 +1,7 @@
 .nav {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 0 5px 0 5px;
   background-color: #e0d7d2;
   box-sizing: border-box;
@@ -23,6 +24,10 @@
     &:hover {
       color: #e1590f;
     }
+  }
+  .links__bar {
+    display: flex;
+    align-items: center;
   }
   .active {
     color: red;
