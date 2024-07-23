@@ -1,0 +1,30 @@
+.avatar {
+  //   width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  img {
+    border: solid 1px transparent;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    &:hover {
+      border: solid 1px #e1590f;
+    }
+  }
+  button {
+    height: 30px;
+    background-color: transparent;
+    border: none;
+    color: black;
+    cursor: pointer;
+    font-size: 16px;
+    &:hover {
+      color: #e1590f;
+    }
+  }
+}
