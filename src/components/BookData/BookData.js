@@ -13,7 +13,7 @@ const BookData = ({ book, refetch }) => {
     `/books/change-cover/${book?.id}`
   );
   const cover = book.cover
-    ? "images/books/" + book.cover.split("/").pop()
+    ? "/images/books/" + book.cover.split("/").pop()
     : book.cover;
   console.log("cover=", cover);
   console.log("book=", book);

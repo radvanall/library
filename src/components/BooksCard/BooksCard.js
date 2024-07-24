@@ -11,8 +11,10 @@ const BooksCard = ({ book }) => {
     <div
       className={styles.card__container}
       onClick={() => {
-        navigate(String(book.id));
-        console.log(book);
+        window.open(String(book.id), "_blank");
+        // console.log(book);
+        // navigate(String(book.id));
+        // console.log(book);
       }}
     >
       {book?.cover ? <img src={cover} alt="#" /> : <img src={stat} alt="#" />}
