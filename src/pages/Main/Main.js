@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom";
 import BooksContainer from "../../components/BooksContainer/BooksContainer";
 import MainFooter from "../../components/MainFooter/MainFooter";
 import GenreFilter from "../../components/GenreFilter/GenreFilter";
+import MainMenu from "../../components/MainMenu/MainMenu";
 import useGet from "../../api/useGet";
 const params = {
   page: 1,
@@ -16,9 +17,8 @@ const Main = () => {
   return (
     <MainProvider>
       <div style={{ padding: "10px", boxSizing: "border-box" }}>
-        Main
         {/* <GenreFilter data={data} error={error} isLoading={isLoading} /> */}
-        <NavLink to="new-book">Add new book</NavLink>
+        <MainMenu />
         <GenreFilter />
         <BooksContainer />
         <MainFooter />
