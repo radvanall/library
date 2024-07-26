@@ -1,4 +1,4 @@
-import { useContext, createContext, useState } from "react";
+import { createContext, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import useGet from "../api/useGet";
 // const params = {
