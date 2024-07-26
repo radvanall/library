@@ -23,7 +23,7 @@ const ChangeCover = ({ path, submit, isActive }) => {
         setValue={setValue}
         setSelectedImage={setSelectedImage}
         id="imgPickerChange"
-        imgName={value?.name ?? "select a new cover"}
+        imgName={value?.name ?? "select a new img"}
       />
       <button onClick={handleSubmit}>Save changes</button>
     </div>
