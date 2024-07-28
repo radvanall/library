@@ -1,11 +1,17 @@
 import { useEffect, useState } from "react";
 
-export const useKeyPress = (targetKey, component) => {
+export const useKeyPress = (targetKey, ref, condition = true) => {
   const [keyPressed, setKeyPressed] = useState(false);
 
   useEffect(() => {
+    const component = ref?.current;
+    console.log(component);
     if (!component) return;
     const downHandler = (event) => {
+      // debugger;
+      console.log(component);
+      console.log(condition);
+      if (!condition) return;
       if (event.key === targetKey) {
         console.log(event.target);
         event.preventDefault();
@@ -13,6 +19,8 @@ export const useKeyPress = (targetKey, component) => {
       }
     };
     const upHandler = (event) => {
+      console.log(component);
+      if (!condition) return;
       if (event.key === targetKey) {
         event.preventDefault();
         setKeyPressed(false);
@@ -24,6 +32,6 @@ export const useKeyPress = (targetKey, component) => {
       component.removeEventListener("keydown", downHandler);
       component.removeEventListener("keyup", upHandler);
     };
-  }, [targetKey, component]);
+  }, [targetKey, ref, condition]);
   return keyPressed;
 };
