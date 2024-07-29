@@ -6,6 +6,21 @@
     position: relative;
     overflow: hidden;
     border: 1px solid black;
+    .tick_svg {
+      position: absolute;
+      border-radius: 10px;
+      height: 22px;
+      width: 30px;
+      padding-top: 3px;
+      right: 32px;
+      top: 1px;
+      align-self: start;
+      background-color: white;
+      fill: grey;
+    }
+    .tick_green {
+      fill: rgb(64, 254, 16);
+    }
     .arrow_svg {
       position: absolute;
       border-radius: 10px;
@@ -52,6 +67,10 @@
         background-color: aqua;
         color: black;
       }
+    }
+    .selected {
+      background-color: aqua;
+      color: black;
     }
   }
   .closed {
