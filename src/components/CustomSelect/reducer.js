@@ -3,14 +3,14 @@ export function createInitState(options) {
     opened: false,
     displayedOptions: [...options],
     selectedIndex: -1,
-    selected: { id: 0, value: "" },
+    // selected: { id: 0, value: "" },
   };
 }
 export const TYPE = {
   TOGGLE: "toggle",
   SET_DISPLAYED_OPTIONS: "setDisplayedOptions",
   SET_SELECTED_INDEX: "setSelectedIndex",
-  SELECTED: "selected",
+  // SELECTED: "selected",
 };
 export function reducer(state, action) {
   switch (action.type) {
@@ -32,11 +32,11 @@ export function reducer(state, action) {
         selectedIndex: action.data,
       };
     }
-    case TYPE.SELECTED: {
-      return {
-        ...state,
-        selected: action.data,
-      };
-    }
+    // case TYPE.SELECTED: {
+    //   return {
+    //     ...state,
+    //     selected: action.data,
+    //   };
+    // }
   }
 }
