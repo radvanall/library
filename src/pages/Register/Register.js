@@ -38,7 +38,7 @@ const Register = () => {
     setError(null);
     let formData = new FormData();
     formData.append("login", formValues.login);
-    formData.append("pass", formData.password);
+    formData.append("pass", formValues.password);
     if (value) {
       formData.append("avatar", value);
       console.log(value);
