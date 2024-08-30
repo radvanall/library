@@ -12,7 +12,10 @@ const useLogin = (dataUrl) => {
     setIsLoading(true);
     try {
       console.log({ data });
-      const response = await api.get(dataUrl, { params: data });
+      const response = await api.get(dataUrl, {
+        params: data,
+        withCredentials: true,
+      });
       console.log({ response });
       setUserData(response.data);
       navigate(`/user/${response.data.user.id}`);
