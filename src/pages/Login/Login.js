@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Login.module.scss";
 import useLogin from "../../api/useLogin";
+import useRefreshToken from "../../api/useRefreshToken";
 const Login = () => {
   const { getUser, error: backEndError, isLoading } = useLogin("/users/auth");
   const [formValues, setFormValues] = useState({
@@ -11,6 +12,7 @@ const Login = () => {
   let handleOnChange = (event) => {
     setFormValues({ ...formValues, [event.target.name]: event.target.value });
   };
+  const refresh = useRefreshToken();
   let handleSubmit = async (event) => {
     event.preventDefault();
     console.log(formValues);
@@ -63,6 +65,7 @@ const Login = () => {
         {error && <p>{error}</p>}
         {backEndError && <p>{backEndError}</p>}
       </form>
+      <button onClick={() => refresh()}>Refresh</button>
     </div>
   );
 };
