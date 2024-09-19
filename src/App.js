@@ -23,10 +23,10 @@ function App() {
             <Route path="user">
               <Route path=":id" element={<User />} />
             </Route>
-            <Route element={<RequireUnauth />}>
-              <Route path="login" element={<Login />} />
-              <Route path="register" element={<Register />} />
-            </Route>
+            {/* <Route element={<RequireUnauth />}> */}
+            <Route path="login" element={<Login />} />
+            <Route path="register" element={<Register />} />
+            {/* </Route> */}
             <Route element={<RequireRole roles={[5150, 1984]} />}>
               <Route path="new-book" element={<NewBook />} />
               <Route path="delete-page/:item" element={<DeletePage />} />
