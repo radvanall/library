@@ -18,6 +18,10 @@ const links = {
       address: "/",
       name: "Books",
     },
+    {
+      address: "/login",
+      name: "Login",
+    },
   ],
   1984: [
     {
@@ -28,6 +32,10 @@ const links = {
       address: "/users",
       name: "Users",
     },
+    {
+      address: "/login",
+      name: "Login",
+    },
   ],
   5150: [
     {
@@ -37,6 +45,10 @@ const links = {
     {
       address: "/users",
       name: "Users",
+    },
+    {
+      address: "/login",
+      name: "Login",
     },
   ],
 };
