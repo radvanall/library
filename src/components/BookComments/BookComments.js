@@ -111,7 +111,8 @@ const BookComments = ({ id }) => {
       setDisplayComments(true);
     }
   };
-
+//test conection
+  
   const deleteComment = () => {
     textRef.current.value = "";
   };
